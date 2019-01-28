@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<robot name="Bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find bot_description)/urdf/Bot.gazebo" />
+
+  <!--link
+    name="footprint" /-->
+
+  <!--joint
+    name="base_joint" type="fixed">
+    <parent link="footprint"/>
+    <child link="base_link"/>
+  </joint-->
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 -0.1016"
+        rpy="0 0 0" />
+      <mass
+        value="31.856" />
+      <inertia
+        ixx="1.36367921838893"
+        ixy="0"
+        ixz="-0.215885581668203"
+        iyy="3.57766444023902"
+        iyz="0"
+        izz="4.11296504784715" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="WR">
+    <inertial>
+      <origin
+        xyz="0 0 -5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.1756" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/WR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/WR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WR"
+    type="continuous">
+    <origin
+      xyz="-0.3253 -0.355 -0.254"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="WR" />
+    <dynamics
+      friction="0.1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="WL">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.1756" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/WL.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/WL.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WL"
+    type="continuous">
+    <origin
+      xyz="-0.3253 0.355 -0.254"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="WL" />
+    <dynamics
+      friction="0.1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="CASTOR">
+    <inertial>
+      <origin
+        xyz="-0.01702 8.6736E-18 -0.025886"
+        rpy="0 0 0" />
+      <mass
+        value="0.082539" />
+      <inertia
+        ixx="7.8034891400848E-05"
+        ixy="0"
+        ixz="4.20031108963582E-05"
+        iyy="0.000174587256482"
+        iyz="0"
+        izz="0.000132470911117508" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/CASTOR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/CASTOR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="CASTOR"
+    type="continuous">
+    <origin
+      xyz="0.345 0 -0.2021"
+      rpy="1.1511E-19 -3.7528E-18 -0.061328" />
+    <parent
+      link="base_link" />
+    <child
+      link="CASTOR" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics
+      friction="0.0" />
+  </joint>
+  <link
+    name="CW">
+    <inertial>
+      <origin
+        xyz="1.1102E-16 3.4694E-18 2.7756E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.14801" />
+      <inertia
+        ixx="0.000159171041439489"
+        ixy="0"
+        ixz="0"
+        iyy="0.000314363347432046"
+        iyz="0"
+        izz="0.000159171041439489" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/CW.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot_description/meshes/CW.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="CW"
+    type="continuous">
+    <origin
+      xyz="-0.05 0 -0.09"
+      rpy="-1.5885E-15 -1.5334 1.6475E-15" />
+    <parent
+      link="CASTOR" />
+    <child
+      link="CW" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <joint name="hokuyo_joint" type="fixed">
+      <axis xyz="0 1 0" />
+      <origin xyz=".49 0 -0.1" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="hokuyo"/>
+    </joint>
+
+    <link name="hokuyo">
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+      <box size="0.1 0.1 0.1"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://bot_description/meshes/hokuyo.dae"/>
+        </geometry>
+      </visual>
+
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+
+
+  <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_contol.so">
+  </plugin>
+</gazebo>
+
+<link name="imu_link">
+<inertial>
+  <mass value="0.001"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <inertia ixx="1e-6" ixy="0.0" ixz="0.0" iyy="1e-6" iyz="0.0" izz="1e-6"/>
+</inertial>
+<visual>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+    <box size="0.03 0.03 0.03"/>
+  </geometry>
+     <material name="imu_col">
+    <color rgba="0 1 1 1"/>
+  </material>
+</visual>
+</link>
+<joint name="imu_joint" type="fixed">
+<parent link="base_link" />
+<origin xyz="0.05 0 0.18" rpy="0 0 0"/>
+<child link="imu_link" />
+</joint>
+
+<link name="navsat_link">
+<visual>
+  <geometry>
+    <cylinder radius="0.026" length="0.016" />
+  </geometry>
+  <origin xyz="0 0 0.008" />
+  <material name="black" />
+</visual>
+</link>
+<joint name="navsat_joint" type="fixed">
+<parent link="base_link" />
+<child link="navsat_link" />
+<origin xyz="0 0.1 0.18" />
+</joint>
+
+
+</robot>
